@@ -11,9 +11,6 @@ class FirstActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
-        val tv1 = findViewById<TextView>(R.id.tv1)
-        tv1.setText("name")
-        val tv2 = findViewById<TextView>(R.id.tv2)
 
         var hej = findViewById<EditText>(R.id.hejEdit)
         var farvel = findViewById<EditText>(R.id.farvelEdit)
@@ -22,7 +19,7 @@ class FirstActivity : AppCompatActivity() {
         val upload = findViewById<Button>(R.id.btnUploadData)
         upload.setOnClickListener {
             var newUser = User(age.text.toString() ,hej.text.toString(), farvel.text.toString())
-            uploadData("Test", newUser)
+            uploadData("User", newUser)
             val i = Intent(this, SecondActivity::class.java)
             startActivity(i)
         }

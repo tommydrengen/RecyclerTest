@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
 
@@ -21,7 +22,9 @@ class SecondActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        recycler = findViewById<RecyclerView>(R.id.recycler)
+        recycler = findViewById(R.id.recycler)
+        recycler.layoutManager = LinearLayoutManager(this)
+        recycler.setHasFixedSize(true)
 
         list = arrayListOf()
 
@@ -48,13 +51,13 @@ class SecondActivity : AppCompatActivity(){
 
         }
 
-         */
+
 
         recycler.setOnClickListener { startActivity(Intent(this,FirstActivity::class.java)) }
 
         // create:
 
-        /*FirebaseFirestore.getInstance().collection("Test").addSnapshotListener{ value, e ->
+        FirebaseFirestore.getInstance().collection("Test").addSnapshotListener{ value, e ->
             if (e != null){
                 Log.w(ContentValues.TAG, "failed", e)
                 return@addSnapshotListener
@@ -69,23 +72,26 @@ class SecondActivity : AppCompatActivity(){
 
     private fun EventChangeListener() {
         db = FirebaseFirestore.getInstance()
-        db.collection("Test").orderBy("age", Query.Direction.ASCENDING).
-        addSnapshotListener(object : EventListener<QuerySnapshot> {
-            override fun onEvent(value: QuerySnapshot?,
-                                 error: FirebaseFirestoreException?
-            ) {
-                if(error != null){
-                    Log.e("Firestore error", error.message.toString())
-                    return
-                }
-                for (dc: DocumentChange in value?.documentChanges!!){
-                    if( dc.type == DocumentChange.Type.ADDED){
-1                        list.add(dc.document.toObject(User::class.java))
+        db.collection("User").orderBy("age", Query.Direction.ASCENDING).
+            addSnapshotListener(object : EventListener<QuerySnapshot> {
+                override fun onEvent(
+                    value: QuerySnapshot?,
+                    error: FirebaseFirestoreException?
+
+                ) {
+                    if(error != null){
+                        Log.e("Firestore error", error.message.toString())
+                        return
                     }
+                    for (dc: DocumentChange in value?.documentChanges!!){
+                        if( dc.type == DocumentChange.Type.ADDED){
+                            list.add(dc.document.toObject(User::class.java))
+                            //createUserElement(dc.document)
+                        }
+                    }
+                    myAdapter.notifyDataSetChanged()
                 }
-                myAdapter.notifyDataSetChanged()
-            }
-        })
+            })
     }
 
     fun createUserElement(user: QueryDocumentSnapshot){

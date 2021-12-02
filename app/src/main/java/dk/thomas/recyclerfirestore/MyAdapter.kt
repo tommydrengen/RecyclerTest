@@ -25,9 +25,9 @@ class MyAdapter(private val userList:ArrayList<User>): RecyclerView.Adapter<MyAd
     }
 
     public class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        val firstName: TextView = itemView.findViewById(R.id.tvFirstName)
-        val lasNme: TextView = itemView.findViewById(R.id.tvLastName)
-        val age: TextView = itemView.findViewById(R.id.age)
+        val firstName: TextView = itemView.findViewById(R.id.tvFirstNameValue)
+        val lasNme: TextView = itemView.findViewById(R.id.tvLastNameValue)
+        val age: TextView = itemView.findViewById(R.id.ageVal)
 
     }
 }

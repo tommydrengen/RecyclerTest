@@ -11,24 +11,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
+        android:layout_marginTop="113dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Name"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv1"
-        app:layout_constraintStart_toEndOf="@+id/tv1" />
+        app:layout_constraintStart_toEndOf="@+id/tv1"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/farvelEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:layout_marginBottom="34dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/ageEdit"
         app:layout_constraintEnd_toEndOf="@+id/hejEdit"
         app:layout_constraintStart_toStartOf="@+id/hejEdit"
         app:layout_constraintTop_toBottomOf="@+id/hejEdit" />
@@ -37,12 +36,12 @@
         android:id="@+id/btnUploadData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="40dp"
         android:text="Add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/farvelEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/ageEdit" />
 
     <TextView
         android:id="@+id/tv1"
@@ -58,10 +57,9 @@
         android:id="@+id/tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
         android:layout_marginTop="59dp"
         android:text="Last Name"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv1"
         app:layout_constraintTop_toBottomOf="@+id/hejEdit" />
 
     <EditText
@@ -69,20 +67,20 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
-        android:layout_marginEnd="99dp"
         android:ems="10"
-        android:inputType="textShortMessage"
+        android:inputType="textLongMessage|textPersonName"
+        android:minHeight="48dp"
         android:text="23"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/farvelEdit"
+        app:layout_constraintStart_toStartOf="@+id/farvelEdit"
         app:layout_constraintTop_toBottomOf="@+id/farvelEdit" />
 
     <TextView
         android:id="@+id/tvAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
         android:layout_marginTop="48dp"
         android:text="Age"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv2"
         app:layout_constraintTop_toBottomOf="@+id/farvelEdit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -71,31 +71,29 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:id="@+id/age"
                 android:layout_marginStart="8dp"
                 android:text="Age:"
-                android:textStyle="bold"
-                />
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/ageVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="18"
-                />
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
