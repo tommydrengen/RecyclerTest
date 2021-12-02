@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,6 +34,14 @@ class SecondActivity : AppCompatActivity(){
         recycler.adapter = myAdapter
 
         EventChangeListener()
+
+        myAdapter.onItemClick = { user ->
+            // do something with your item
+
+
+            Toast.makeText(applicationContext, "You clicked:" + user.firstName, Toast.LENGTH_SHORT).show()
+            Log.d("TAG", user.age.toString())
+        }
 
 
         /* FirebaseFirestore.getInstance().collection("Test").addSnapshotListener { value, e ->
